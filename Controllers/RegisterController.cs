@@ -30,7 +30,6 @@ namespace AfsluttendeUmbracoProjekt.Controllers
             }
             //If email is not already used, create member, save password and log them in right away:
             var member = memberService.CreateMemberWithIdentity(model.Email, model.Email, model.Name, "galleryMember");
-            member.SetValue("bio", model.Biography);
 
             member.SetValue(Services.ContentTypeBaseServices, "avatar", model.Avatar.FileName, model.Avatar);
 
