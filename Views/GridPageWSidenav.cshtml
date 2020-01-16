@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.GridPageWsidenav>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "~/Views/Shared/_master.cshtml";
+}
+
+<section class="grid-page">
+    @Html.GetGridHtml(Model, "contentGrid")
+</section>
+
+
+

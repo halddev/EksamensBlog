@@ -1,0 +1,36 @@
+﻿@model AfsluttendeUmbracoProjekt.Models.GuestbookFormViewModel
+@using Umbraco.Core.Events;
+
+
+@if (TempData["success"] == null)
+{
+    using (Html.BeginUmbracoForm<AfsluttendeUmbracoProjekt.Controllers.GuestbookFormSurfaceController>("CreateEntry"))
+    {
+        <div class="col-11 mx-auto">
+            <div class="controls-row my-4">
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Title, new { @class = "col-sm-6", placeholder = "Title" })
+                    @Html.ValidationMessageFor(m => m.Title)
+
+                    @Html.TextBoxFor(m => m.GuestName, new { @class = "col-sm-5", placeholder = "Your Name" })
+                    @Html.ValidationMessageFor(m => m.GuestName)
+                </div>
+            </div>
+            <div class="controls-row">
+                <div class="controls">
+                    @Html.TextAreaFor(m => m.EntryText, new { @class = "col-sm-11", placeholder = "Your text", rows = "5" })
+                    @Html.ValidationMessageFor(m => m.EntryText)
+                    
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="guestbookEntry-submit" class="btn btn-dark input-lg pull-right">Send</button>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <i>Thank you!</i>
+}

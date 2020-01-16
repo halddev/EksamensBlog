@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+
+@{
+    var entries = Umbraco.Content(Guid.Parse("97b96284-f968-4642-91b4-6d5a3ecfe555"))
+    .ChildrenOfType("guestbookEntry")
+    .Where(x => x.IsVisible())
+    .OrderByDescending(x => x.CreateDate);
+}
+
+
+<section class="post-list">
+    <ul>
+        @foreach (var entry in entries)
+        {
+
+            DateTime.TryParse(entry.Value("date").ToString(), out DateTime postDate);
+            <li>
+                <h2 class="heading" style="text-align: center;">- @entry.Value("title") -</h2>
+                <p style="text-align: center;">- by @entry.Value("guestName"), @postDate.ToString("dd MMMM, yyyy")</p>
+                <br />
+                <p style="text-align: center;">@entry.Value("entrytext")</p>
+                <hr />
+            </li>
+        }
+    </ul>
+</section>

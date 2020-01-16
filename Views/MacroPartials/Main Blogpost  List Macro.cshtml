@@ -1,0 +1,48 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+
+
+@{
+    /**/
+
+    var years = Umbraco.Content(Guid.Parse("af3f3730-a418-49d4-8886-be211c025bfd"))
+    .ChildrenOfType("gridPageWSidenav")
+    .Where(x => x.IsVisible())
+    .OrderByDescending(x => x.CreateDate);
+
+}
+
+@{
+    var blogposts = Model.Content
+    .DescendantsOfType("blogPost")
+    .Where(x => x.IsVisible());
+}
+
+
+@foreach (var year in years)
+{
+    <section class="post-list">
+        <h2>Posts @year.Name</h2>
+
+        <hr /><hr />
+        
+        <ul>
+            @foreach (var blogpost in blogposts)
+            {
+                if (blogpost.Value("date").ToString().Contains(year.Name))
+                {
+                    DateTime.TryParse(blogpost.Value("date").ToString(), out DateTime postDate);
+                    <li>
+                        <a href="@blogpost.Url">
+                            <h2 class="heading" style="text-align: center;">- @blogpost.Value("title") -</h2>
+                        </a>
+                        <h3 class="subheading" style="text-align: center;">@blogpost.Value("subheading")</h3>
+                        <br />
+                        <p style="text-align: center;">- By @blogpost.Value("authorName"), @postDate.ToString("dd. MMMM") </p>
+                        <hr />
+                    </li>
+                }
+            }
+        </ul>
+    </section>
+}

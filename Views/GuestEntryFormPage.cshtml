@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+<div id="panel">
+
+    @Html.Action("Index", "GuestbookFormSurface")
+
+</div>

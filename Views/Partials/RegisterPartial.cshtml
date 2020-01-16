@@ -1,0 +1,58 @@
+﻿@model AfsluttendeUmbracoProjekt.Models.RegisterModel
+
+@using (Html.BeginUmbracoForm<AfsluttendeUmbracoProjekt.Controllers.RegisterController>("Register"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="centered-form">
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Biography)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Biography)
+            @Html.ValidationMessageFor(model => model.Biography)
+        </div>
+        
+        <br />
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Avatar)
+        </div>
+        <div class="editor-field">
+            <input type="file" name="Avatar" />
+            @Html.ValidationMessageFor(model => model.Avatar)
+        </div>
+        
+        <br />
+        
+        <p>
+            <input class="btn btn-dark" type="submit" value="Register" />
+        </p>
+    </fieldset>
+}

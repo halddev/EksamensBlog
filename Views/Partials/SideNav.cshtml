@@ -1,0 +1,38 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+    var blogPosts = Model
+        .DescendantsOfType("gridPageWSidenav")
+        .Where(x => x.IsVisible());
+}
+
+@{
+    var folders = Umbraco.Content(Guid.Parse("af3f3730-a418-49d4-8886-be211c025bfd"))
+    .ChildrenOfType("blogsFolder")
+    .Where(x => x.IsVisible());
+}
+
+
+
+<nav class="aside">
+
+
+
+    @{
+        var selection = Umbraco.Content(Guid.Parse("af3f3730-a418-49d4-8886-be211c025bfd"))
+        .ChildrenOfType("blogsFolder")
+        .Where(x => x.IsVisible());
+    }
+    <ul>
+        @foreach (var item in selection)
+        {
+            <li>
+                <a href="@item.Url">@item.Name</a>
+            </li>
+        }
+    </ul>
+
+
+
+
+</nav>

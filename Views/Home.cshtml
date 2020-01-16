@@ -1,0 +1,45 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Home>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+@{
+    var blogposts = Model
+        .DescendantsOfType("blogPost")
+        .Where(x => x.IsVisible());
+}
+
+
+<section class="grid-page home-page">
+    <div class="col-sm-11 col-md-9 mx-auto">
+        <h1>@Model.Value("Heading")</h1>
+
+        <section class="post-list">
+            <h2>Latest posts:</h2>
+
+            <hr /><hr />
+
+            <ul>
+
+                @foreach (var blogpost in blogposts.OrderByDescending(x => x.CreateDate).Take(3))
+                {
+                    DateTime.TryParse(blogpost.Value("date").ToString(), out DateTime postDate);
+                    <li>
+                        <a href="@blogpost.Url">
+                            <h2 class="heading" style="text-align: center;">- @blogpost.Value("title") -</h2>
+                        </a>
+                        <h3 class="subheading" style="text-align: center;">@blogpost.Value("subheading")</h3>
+                        <br />
+                        <p style="text-align: center;">- By @blogpost.Value("authorName"), @postDate.ToString("dd. MMMM") </p>
+                        <hr />
+                    </li>
+                }
+            </ul>
+        </section>
+
+    </div>
+</section>
+
+
+

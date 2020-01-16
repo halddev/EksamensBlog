@@ -1,0 +1,30 @@
+{
+  "propertyEditors": [
+
+    {
+      "alias": "textWithCharLimit",
+      "name": "Text with character limit",
+      "editor": {
+        "view": "~/App_Plugins/PluginExample/textwithcharlimit.editor.html"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Number of chars",
+            "description": "The maximum number of chars allowed",
+            "key": "limit",
+            "view": "number"
+          }
+        ]
+      },
+      "isParameterEditor": true,
+      "defaultConfig": {
+        "limit": 150
+      }
+    }
+  ],
+
+  "javascript": [
+    "~/App_Plugins/PluginExample/textwithcharlimit.controller.js"
+  ]
+}

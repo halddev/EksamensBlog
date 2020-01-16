@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@{
+    var blogposts = Model.Content
+    .ChildrenOfType("blogPost")
+    .Where(x => x.IsVisible()).OrderByDescending(x=>x.CreateDate);
+}
+
+<section class="post-list">
+    <h2>Posts @Model.Content.Name</h2>
+
+    <hr /><hr />
+
+    <ul>
+        @foreach (var blogpost in blogposts)
+        {
+            DateTime.TryParse(blogpost.Value("date").ToString(), out DateTime postDate);
+            <li>
+                <a href="@blogpost.Url">
+                    <h2 class="heading" style="text-align: center;">- @blogpost.Value("title") -</h2>
+                </a>
+                <h3 class="subheading" style="text-align: center;">@blogpost.Value("subheading")</h3>
+                <br />
+                <p style="text-align: center;">- By @blogpost.Value("authorName"), @postDate.ToString("dd. MMMM") </p>
+                <hr />
+            </li>
+        }
+    </ul>
+</section>

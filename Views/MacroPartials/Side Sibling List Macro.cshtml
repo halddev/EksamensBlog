@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@{ var selection = Model.Content.SiblingsAndSelf().OrderByDescending(x => x.CreateDate).ToArray(); }
+
+@if (selection.Length > 0)
+{
+    <aside class="sidenav">
+        <nav>
+            <ul>
+                @foreach (var item in selection)
+                {
+                    if (Model.Content == item)
+                    {
+                        <li class="active">
+                            <a href="@item.Url" class="btn btn-lg btn-block btn-dark active">@item.Name</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="@item.Url" class="btn btn-lg btn-block btn-dark">@item.Name</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </nav>
+    </aside>
+}

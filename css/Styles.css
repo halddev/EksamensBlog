@@ -1,0 +1,209 @@
+body {
+    padding: 10px;
+    background: #f5f5f5;
+}
+
+.grid-page {
+    padding: 50px 0;
+}
+
+.home-page {
+    text-align: center;
+    font-family: 'Courgette', cursive;
+}
+
+header.pageheader {
+    margin-bottom: 10px;
+    background: no-repeat center center;
+    background-color: #868e96;
+    background-attachment: scroll;
+    position: relative;
+    background-size: cover;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    font-family: 'Courgette', cursive;
+}
+
+    header.pageheader .page-heading,
+    header.pageheader .post-heading,
+    header.pageheader .site-heading {
+        text-shadow: 4px 4px 4px black;
+        padding: 20px 0 50px;
+        color: #f5f5f5;
+    }
+
+@media only screen and (min-width: 768px) {
+    header.pageheader .page-heading,
+    header.pageheader .post-heading,
+    header.pageheader .site-heading {
+        padding: 100px 0;
+    }
+}
+
+header.pageheader .page-heading,
+header.pageheader .site-heading {
+    text-align: center;
+}
+
+    header.pageheader .page-heading h1,
+    header.pageheader .site-heading h1 {
+        font-size: 50px;
+        margin-top: 0;
+    }
+
+    header.pageheader .page-heading h2,
+    header.pageheader .site-heading h2 {
+        font-size: 30px;
+        margin: 0;
+    }
+
+
+    header.pageheader .page-heading .subheading,
+    header.pageheader .site-heading .subheading {
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 1.1;
+        display: block;
+        margin: 10px 0 0;
+        text-shadow: 3px 3px 3px black;
+    }
+
+@media only screen and (min-width: 768px) {
+    header.pageheader .page-heading h1,
+    header.pageheader .site-heading h1 {
+        font-size: 80px;
+    }
+}
+
+header.pageheader .post-heading h1 {
+    font-size: 35px;
+}
+
+header.pageheader .post-heading .meta,
+header.pageheader .post-heading .subheading {
+    line-height: 1.1;
+    display: block;
+}
+
+header.pageheader .post-heading .subheading {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 10px 0 30px;
+}
+
+header.pageheader .post-heading .meta {
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+    header.pageheader .post-heading .meta a {
+        color: #f5f5f5;
+    }
+
+@media only screen and (min-width: 768px) {
+    header.pageheader .post-heading h1 {
+        font-size: 55px;
+    }
+
+    header.pageheader .post-heading .subheading {
+        font-size: 30px;
+    }
+}
+
+header.pageheader nav a{
+    color: #000000;
+    font-size: 1.2em;
+    text-decoration: none;
+    background-color: transparent;
+    opacity: 0.7;
+}
+a.pages {
+    margin-right: 40px;
+    padding: 5px;
+}
+
+header.pageheader nav li a:hover {
+    color: #000000;
+    text-decoration: none;
+    text-shadow: 2px 2px 2px grey;
+    opacity: 0.9;
+}
+
+header.pageheader nav .navbar-brand {
+    font-size: 1.8em;
+    opacity: 0.9;
+    text-shadow: 3px 3px 3px grey;
+}
+
+header.pageheader .navbar-brand:hover {
+    opacity: 1;
+    text-shadow: 4px 4px 4px black;
+}
+
+nav li.act a {
+    text-shadow: 5px 5px 5px black;
+    opacity: 0.6;
+    text-decoration: underline;
+}
+
+h3.subheading {
+    font-size: 1.5em;
+}
+
+.sidenav {
+    font-family: 'Courgette', cursive;
+    text-align: center;
+}
+
+    .sidenav ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    /*knap mellemrum*/
+    .sidenav li {
+        margin: 20px 0 30px;
+    }
+
+    /*knapstørrelse*/
+    .sidenav a {
+        padding: 0.3em 3em;
+        box-shadow: 4px 4px 4px black;
+        text-shadow: 2px 2px 2px black;
+        color: #f5f5f5
+    }
+
+        .sidenav a:hover {
+            box-shadow: 2px 2px 2px black;
+        }
+
+.navbar-light {
+    background: #f5f5f5;
+}
+
+#AddEntryBtn {
+    font-family: 'Courgette', cursive;
+}
+
+section.post-list {
+    font-family: 'Courgette', cursive;
+}
+
+    section.post-list h2 {
+        text-align: center;
+    }
+
+    section.post-list a {
+        text-decoration: none;
+        color: black;
+    }
+
+    section.post-list li {
+        list-style-type: none;
+    }
+
+    fieldset.centered-form {
+        text-align: center;
+    }

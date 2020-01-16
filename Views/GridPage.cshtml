@@ -1,0 +1,21 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@{
+    Layout = "~/Views/Shared/_master.cshtml";
+}
+
+@{
+    var CreateEntryPage = Umbraco.Content(1153);
+}
+
+    @if (Model.Id == 1147)
+    {
+        <a href="@CreateEntryPage.Url" id="AddEntryBtn"class="btn btn-lg btn-block btn-dark">@CreateEntryPage.Value("subheading")</a>
+    }
+
+    <section class="grid-page">
+    <div class="col-sm-11 col-md-9 mx-auto">
+        @Html.GetGridHtml(Model, "contentGrid")
+    </div>
+</section>

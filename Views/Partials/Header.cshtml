@@ -1,0 +1,40 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@using Umbraco.Web.Models;
+
+@* If topImage is selected in media picker, use selected image.
+    Else use logo as default image *@
+@{
+    string topImageUrl;
+
+
+    if (Model.Value("topImage") != null)
+    {
+        topImageUrl = (Model.Value<IPublishedContent>("topImage").GetCropUrl(width: 1400, height: 400, preferFocalPoint: true));
+    }
+    else
+    {
+        topImageUrl = "/media/fxfdiokv/image-not-found-1.png".GetCropUrl(width: 1000, height: 400, preferFocalPoint: true);
+    }
+}
+
+@*Header picture*@
+<header class="pageheader" style="background-image: url(@topImageUrl)">
+
+@Html.Partial("MainNav")
+
+    @*Heading and subheading *@
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto">
+                <div class="site-heading">
+
+                    <h1>@Model.Value("title")</h1>
+                    <h2 class="subheading">@Model.Value("subheading")</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+

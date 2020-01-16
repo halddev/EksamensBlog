@@ -1,0 +1,55 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+    var selection = Umbraco.Content(Guid.Parse("5c70f215-75ad-4377-b274-20fd890d5f05"))
+    .Children()
+    .Where(x => x.IsVisible())
+    .OrderBy(x => x.CreateDate);
+}
+
+
+@{
+    var loginPage = Umbraco.Content(Guid.Parse("fd7a863d-f0cd-47bd-b0fa-c638f7d637cb"));
+}
+
+
+@{
+    var registerPage = Umbraco.Content(Guid.Parse("bf232ed8-33bf-4f06-9c64-7307c7fdebd1"));
+}
+
+@*Header navbar*@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <a class="navbar-brand" href="/">Exam Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav mr-auto">
+            @foreach (var item in selection)
+            {
+                if (Model == item || Model.AncestorOrSelf(2) == item)
+                {
+                    <li class="act">
+                        <a class="pages" href="@item.Url">@item.Name</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a class="pages" href="@item.Url">@item.Name</a>
+                    </li>
+                }
+            }
+        </ul>
+
+        <ul class="navbar-nav">
+            <li>
+                <a class="pages" href="@registerPage.Url">@registerPage.Name</a>
+            </li>
+            <li>
+                <a class="pages" href="@loginPage.Url">@loginPage.Name</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<p>@Model.Value("topImage")</p>

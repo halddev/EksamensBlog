@@ -1,0 +1,14 @@
+{
+  "id": "4ff38c30-fbc1-4db3-8ca4-4589192ee5b0",
+  "name": "Save as guestbook entry node",
+  "form": "63dd0e7b-6e49-4ad1-bd8d-c7fe333ddaab",
+  "active": true,
+  "workflowTypeId": "89fb1e31-9f36-4e08-9d1b-af1180d340db",
+  "executesOn": "Submitted",
+  "settings": {
+    "Fields": "{\"doctype\":\"guestbookEntry\",\"nameStaticValue\":\"Name\",\"properties\":[{\"id\":\"date\",\"value\":\"Date\",\"$$hashKey\":\"object:3013\"},{\"id\":\"entryText\",\"value\":\"Entry Text\",\"$$hashKey\":\"object:3014\"},{\"id\":\"guestName\",\"value\":\"Guest Name\",\"$$hashKey\":\"object:3015\"},{\"id\":\"title\",\"value\":\"Title\",\"$$hashKey\":\"object:3016\"}]}",
+    "Publish": "",
+    "RootNode": ""
+  },
+  "sortOrder": 0
+}

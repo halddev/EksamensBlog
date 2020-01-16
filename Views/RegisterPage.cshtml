@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.RegisterPage>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using AfsluttendeUmbracoProjekt.Models
+
+
+
+@{
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+@Html.Partial("RegisterPartial", new RegisterModel())

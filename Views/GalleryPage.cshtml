@@ -1,0 +1,53 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.GalleryPage>
+@using Umbraco.Web.Models
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+
+@{
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+@* Gallery *@
+<section>
+    @{
+        var media = Model.Value<IPublishedContent>("galleryMediaPicker");
+        foreach (var item in media.Children)
+        {
+            <img src="@item.Url.GetCropUrl(width: 325, height: 250, preferFocalPoint: true, imageCropMode: ImageCropMode.Pad)" alt="@item.Name">
+        }
+    }
+</section>
+
+@* Image upload functionality *@
+
+@* Form *@
+<div style="margin: 10px;" class="row">
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <input type="submit" value="Upload Image" name="submit" />
+    </form>
+</div>
+
+@*Actually uploading the image*@
+
+@* Check if button gets clicked *@
+@if (IsPost)
+{
+    // Get a reference to the uploaded file
+    HttpPostedFileBase file = Request.Files["file"];
+
+    // Did the user actually select a file?
+    if (file != null)
+    {
+        // Initialize a new image in Gallery Images folder in Media section
+        IMedia image = Services.MediaService.CreateMedia(file.FileName, 1141, "Image");
+
+        // Set the property value (Umbraco takes care of the rest)
+        image.SetValue(Services.ContentTypeBaseServices, "umbracoFile", file.FileName, file);
+
+        // Save the media
+        Services.MediaService.Save(image);
+
+        // Redirect to current page for refresh
+        Response.Redirect(@Model.Url);
+    }
+}
