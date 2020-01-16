@@ -16,8 +16,6 @@ namespace AfsluttendeUmbracoProjekt.Models
         [Required]
         public string Password { get; set; }
 
-        public string Biography { get; set; }
-
         public HttpPostedFileBase Avatar { get; set; }
     }
 }
